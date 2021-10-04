@@ -1,8 +1,34 @@
 <div class="test">
-    <h3>Đây là component Home</h3>
-    <br>
-    <input type="text" [(ngModel)]="name"> 
-    <!-- nhận giá trị nhập vào từ input  ngModel hiển thị ra {{name}}  -->
-    <h2>Chào bạn {{ name }}</h2>
-    <button (click)="resetName()">Reset tên</button>
+  <h3>Đây là component Home</h3>
+  <h1>Trái cây</h1>
+  <br/>
+  <!-- <input type="text" [(ngModel)]="name" />
+  nhận giá trị nhập vào từ input  ngModel hiển thị ra {{name}} 
+  <h2>Chào bạn {{ name }}</h2>
+  <button (click)="resetName()">Reset tên</button> -->
+
+  <!-- <div *ngFor="let trai of traiCay; let i = index">
+        <li>{{i + 1}}. {{ trai }}</li>
+    </div> -->
+  <br />
+  <table class="table">
+    <tr>
+      <th>Thứ tự</th>
+      <th>Tên</th>
+      <th>Giá</th>
+      <th>Hạ Giá</th>
+    </tr>
+    <tr *ngFor="let trai of traiCay2; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ trai.ten }}</td>
+      <td>
+        <span [ngClass]="{ 'so-am': trai.gia < 0 }">
+          {{ trai.gia }}
+        </span>
+      </td>
+      <td>
+        <span *ngIf="trai.haGia"> Đang hạ giá ! </span>
+      </td>
+    </tr>
+  </table>
 </div>
