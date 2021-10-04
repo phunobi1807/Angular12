@@ -15,14 +15,65 @@ export class HomeComponent implements OnInit {
     { ten: 'Cam', gia: 10, haGia: true },
     { ten: 'Quyét', gia: -5, haGia: false },
   ];
+  public districts: string[] =  [];
+  public vietnamData = [
+    {city: "Chọn Thành Phố", district: ""},
+    {
+      city: 'An Giang',
+      district: [
+        'Thành phố Long Xuyên',
+        'Thành phố Châu Đốc',
+        'Thị Xã Tân Châu',
+        'Huyện Châu Phú',
+        'Huyện Châu Thành',
+        'Huyện Chợ Mới',
+        'Huyện Phú Tân',
+      ],
+    },
+    {
+      city: 'Bà Rịa - Vũng Tàu',
+      district: [
+        'Thành Phố Vũng Tàu',
+        'Thị Xã Bà Rịa',
+        'Thị Xã Phú Mỹ',
+        'Huyện Châu Đức',
+        'Huyện Côn Đảo',
+        'Huyện Long Điền',
+        'Huyện Tân Thành',
+        'Huyện Xuyên Mộc',
+      ],
+    },
+    {
+      city: 'Bạc Liêu',
+      district: [
+        'Thành phố Bạc Liêu',
+        'Huyện Đông Hải',
+        'Huyện Giá Rai',
+        'Huyện Hòa Bình',
+        'Huyện Hồng Dân',
+        'Huyện Phước Long',
+        'Huyện Vĩnh Lợi',
+      ],
+    },
+  ];
 
   constructor() {}
 
   ngOnInit(): void {
-    console.log('trai cay = ', this.traiCay);
+    console.log('cities = ', this.vietnamData);
   }
   // public resetName():void {
   //   console.log("asf")
   //   this.name = 'Phu';
   // }
+  public changeCity(event : any) {
+    const city = event.target.value;
+    console.log('event:', city);
+    const search = this.vietnamData.filter((data) => data.city === city);
+    console.log("search:", search);
+    if (search && search.length > 0) {
+      //  this.districts = search[0].district;
+    }
+
+  }
 }
