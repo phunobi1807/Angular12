@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
   public traiCay2 = [
     { ten: 'Táo', gia: 12, haGia: true },
     { ten: 'Nho', gia: -3, haGia: false },
+    { ten: 'Cam', gia: 10, haGia: true },
+    { ten: 'Quyét', gia: -5, haGia: false },
   ];
 
   constructor() {}
@@ -23,5 +25,4 @@ export class HomeComponent implements OnInit {
   //   console.log("asf")
   //   this.name = 'Phu';
   // }
-
 }
