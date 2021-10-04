@@ -27,7 +27,10 @@
         </span>
       </td>
       <td>
-        <span *ngIf="trai.haGia"> Đang hạ giá ! </span>
+        <span class="giacu" *ngIf="trai.haGia; else elseBlock"> Đang hạ giá ! </span>
+        <ng-template #elseBlock>
+            <span>Giá cũ</span>
+        </ng-template>
       </td>
     </tr>
   </table>
