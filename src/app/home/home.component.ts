@@ -15,9 +15,9 @@ export class HomeComponent implements OnInit {
     { ten: 'Cam', gia: 10, haGia: true },
     { ten: 'Quyét', gia: -5, haGia: false },
   ];
-  public districts: string[] =  [];
+  public districts: string[] = [];
   public vietnamData = [
-    {city: "Chọn Thành Phố", district: ""},
+    { city: 'Chọn Thành Phố', district: '' },
     {
       city: 'An Giang',
       district: [
@@ -66,14 +66,16 @@ export class HomeComponent implements OnInit {
   //   console.log("asf")
   //   this.name = 'Phu';
   // }
-  public changeCity(event : any) {
+  public changeCity(event: any) {
     const city = event.target.value;
     console.log('event:', city);
     const search = this.vietnamData.filter((data) => data.city === city);
-    console.log("search:", search);
+    console.log('search:', search);
     if (search && search.length > 0) {
       //  this.districts = search[0].district;
+      this.districts = search[0].district && Array.isArray(search[0].district)
+          ? search[0].district
+          : [];
     }
-
   }
 }
